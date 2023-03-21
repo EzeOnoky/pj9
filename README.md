@@ -87,8 +87,13 @@ sudo apt-get install jenkins
     
 - In this part, you will learn how to configure a simple Jenkins job/project (these two terms can be used interchangeably). This job will will be triggered by GitHub [webhooks](https://en.wikipedia.org/wiki/Webhook) and will execute a ‘build’ task to retrieve codes from GitHub and store it locally on Jenkins server.
     
-1. - Enable webhooks in your GitHub repository settings
+1. - Enable webhooks in your GitHub repository settings [Webhooks](https://darey.io/wp-content/uploads/2021/07/webhook_github.gif)
     
-    
-    
+2. - Go to Jenkins web console, click "New Item" and create a "Freestyle project"    
+
+<img width="551" alt="Jenkins web console" src="https://user-images.githubusercontent.com/115954100/226733271-5b580313-31ad-4fd5-a652-7a031935bf29.png">
+
+- To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
+     
+<img width="556" alt="Connecting githup repo" src="https://user-images.githubusercontent.com/115954100/226734606-a79e3071-cddb-4a32-b2a0-6fbc11a43f82.png">
     
