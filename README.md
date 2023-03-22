@@ -160,3 +160,30 @@ Click "Build Now" button, if you have configured everything correctly, the build
     
 - Test the configuration and make sure the connection returns **Success**. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.    
     
+<img width="882" alt="Publish over ssh test configuration" src="https://user-images.githubusercontent.com/115954100/226904704-80e80025-cfcf-490f-879f-79d9ed1ddfd8.png">
+
+- Save the configuration, open your Jenkins job/project configuration page and add another one "Post-build Action"
+
+<img width="210" alt="Another Post Build" src="https://user-images.githubusercontent.com/115954100/226905249-f5267f5d-b3ce-459e-bdd3-2cccf321034e.png">
+
+- Configure it to send all files probuced by the build into our previouslys define remote directory. In our case we want to copy all files and directories – so we use **.
+    
+- If you want to apply some particular pattern to define which files to send – use this syntax.
+    
+<img width="551" alt="Send build artifact over ssh" src="https://user-images.githubusercontent.com/115954100/226905946-7a7254a5-8c1a-43a2-9493-0e88a67fe37a.png">
+   
+- Save this configuration and go ahead, change something in **README.MD** file in your GitHub Tooling repository.
+    
+- Webhook will trigger a new job and in the "Console Output" of the job you will find something like this:    
+    
+```    
+SSH: Transferred 25 file(s)
+Finished: SUCCESS   
+```    
+    
+- To make sure that the files in **/mnt/apps** have been udated – connect via SSH/Putty to your NFS server and check **README.MD** file `cat /mnt/apps/README.md`
+
+- If you see the changes you had previously made in your GitHub – the job works as expected.    
+    
+    
+    
